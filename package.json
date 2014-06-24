@@ -1,0 +1,25 @@
+{
+  "name": "dnm-play",
+  "version": "0.0.0",
+  "description": "learning new technologies and shit",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirubid/signalr-hw.git"
+  },
+  "author": "david milby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirubid/signalr-hw/issues"
+  },
+  "homepage": "https://github.com/mirubid/signalr-hw"
+}
