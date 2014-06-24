@@ -3,13 +3,38 @@
 <head>
     <title></title>
 </head>
-<body onload="webGLStart();">
+<body >
     
     <canvas id="canvas" style="border: none;" width="500" height="500"></canvas>
 
     <br />
     <a href="http://learningwebgl.com/blog/?p=28">&lt;&lt; Back to Lesson 1</a><br />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://learningwebgl.com/lessons/lesson01/glMatrix-0.9.5.min.js"></script>
+    <script id="shader-fs" type="x-shader/x-fragment">
+        precision mediump float;
+
+        varying vec4 vColor;
+
+        void main(void) {
+        gl_FragColor = vColor;
+        }
+    </script>
+
+    <script id="shader-vs" type="x-shader/x-vertex">
+        attribute vec3 aVertexPosition;
+        attribute vec4 aVertexColor;
+
+        uniform mat4 uMVMatrix;
+        uniform mat4 uPMatrix;
+
+        varying vec4 vColor;
+
+        void main(void) {
+            gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+            vColor = aVertexColor;
+        }
+    </script>
     <script src="webgl.js"></script>
 </body>
 </html>
