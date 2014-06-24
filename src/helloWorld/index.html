@@ -73,6 +73,10 @@
             
             $('form').submit(function (e) { console.log(e); e.preventDefault(); });
             function log(name) { return function () { console.log(name, this, arguments); }; }
+            function id() {
+                // generate a randomish string of [a-z0-9]*
+                var r = Math.random().toString(36).substr(2, 7); return r.length == 7 ? r : id();
+            }
             $.fn.serializeObject = function () {
                 var o = {};
                 var a = this.serializeArray();
@@ -151,7 +155,7 @@
             function svgButtonClicked(e) {
                 var o = $(this).closest('fieldset').serializeObject();
                 o.style = $('#svgfs input[name=style]').val();
-
+                o.id = id();
                 another.server.sendSvgShape(this.value, o);
             }
             function shapeForm(container, shape) {
